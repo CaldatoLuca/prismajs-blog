@@ -11,16 +11,45 @@ const postCrud = require("./utils/postCrud");
 // const tags = ["tagTest1", "tagTest2", "tagTest3", "tagTest4"];
 // tagCrud.createTags(tags, (t) => console.log(t));
 
-// const postData = {
-//   title: "postTest1",
-//   slug: "post-test1",
-//   image: "postTestImage1",
-//   content: "postTestContent1",
-//   published: true,
-//   categoryId: 3,
-//   tagsIds: [3, 4],
-// };
-// postCrud.createPost(postData, (p) => console.log(p));
+// const posts = [
+//   {
+//     title: "postTest1",
+//     slug: "post-test1",
+//     image: "postTestImage1",
+//     content: "postTestContent1",
+//     published: true,
+//     categoryId: 1,
+//     tagsIds: [1, 2],
+//   },
+//   {
+//     title: "postTest2",
+//     slug: "post-test2",
+//     image: "postTestImage2",
+//     content: "postTestContent2",
+//     published: false,
+//     categoryId: 2,
+//     tagsIds: [2, 3],
+//   },
+//   {
+//     title: "postTest3",
+//     slug: "post-test3",
+//     image: "postTestImage3",
+//     content: "postTestContent3",
+//     published: true,
+//     categoryId: 3,
+//     tagsIds: [3, 4],
+//   },
+//   {
+//     title: "postTest4",
+//     slug: "post-test4",
+//     image: "postTestImage4",
+//     content: "postTestContent4",
+//     published: false,
+//     categoryId: 4,
+//     tagsIds: [4, 5],
+//   },
+// ];
+// posts.map((postData) => postCrud.createPost(postData, (p) => console.log(p)));
 
 // postCrud.readPostBySlug("post-test", (p) => console.log(p));
 
@@ -39,3 +68,5 @@ const postCrud = require("./utils/postCrud");
 // postCrud.updatePost(2, updatedPost, (p) => console.log(p));
 
 // postCrud.deletePost(1, (p) => console.log(p));
+
+postCrud.publishedPosts((p) => console.log(p));

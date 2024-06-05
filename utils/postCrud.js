@@ -78,12 +78,22 @@ const deletePost = (id, cf) => {
     .catch((e) => console.log(e));
 };
 
+const publishedPosts = (cf) => {
+  prisma.post
+    .findMany({
+      where: { published: true },
+    })
+    .then((posts) => cf(posts))
+    .catch((e) => console.log(e));
+};
+
 module.exports = {
   createPost,
   readPostBySlug,
   readPosts,
   updatePost,
   deletePost,
+  publishedPosts,
 };
 
 // Se non passo una delle proprietà, dà errore o semplicemente non la modifica?
