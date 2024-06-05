@@ -10,10 +10,10 @@ const createPost = (data, cf) => {
         image: data.image,
         content: data.content,
         published: data.published,
-        Category: {
+        category: {
           connect: { id: data.categoryId },
         },
-        Tags: {
+        tags: {
           connect: data.tagsIds.map((tagId) => ({ id: tagId })),
         },
       },
@@ -22,6 +22,20 @@ const createPost = (data, cf) => {
     .catch((e) => console.log(e));
 };
 
+const readPostById = (slug, cf) => {
+  prisma.post
+    .findUnique({
+      where: { slug: slug },
+      include: {
+        category: { select: { name: true } },
+        tags: { select: { name: true } },
+      },
+    })
+    .then((p) => cf(p))
+    .catch((e) => console.log(e));
+};
+
 module.exports = {
   createPost,
+  readPostById,
 };

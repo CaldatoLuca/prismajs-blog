@@ -20,5 +20,6 @@ const postCrud = require("./utils/postCrud");
 //   categoryId: 1,
 //   tagsIds: [1, 2],
 // };
-
 // postCrud.createPost(postData, (p) => console.log(p));
+
+postCrud.readPostById("post-test", (p) => console.log(p));
