@@ -71,4 +71,4 @@ const postCrud = require("./utils/postCrud");
 
 // postCrud.publishedPosts((p) => console.log(p));
 
-postCrud.filterPostContentByString("2", (p) => console.log(p));
+// postCrud.filterPostContentByString("2", (p) => console.log(p));
