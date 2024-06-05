@@ -4,7 +4,8 @@
   "description": "Creare un progetto node ed installare **Prisma** (**_CLI_** e **_Client_**)",
   "main": "app.js",
   "scripts": {
-    "dev": "node app.js"
+    "dev": "node app.js",
+    "migrate": "npx prisma migrate dev --name"
   },
   "keywords": [],
   "author": "",
