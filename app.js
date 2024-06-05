@@ -69,4 +69,6 @@ const postCrud = require("./utils/postCrud");
 
 // postCrud.deletePost(1, (p) => console.log(p));
 
-postCrud.publishedPosts((p) => console.log(p));
+// postCrud.publishedPosts((p) => console.log(p));
+
+postCrud.filterPostContentByString("2", (p) => console.log(p));

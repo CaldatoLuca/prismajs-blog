@@ -87,6 +87,17 @@ const publishedPosts = (cf) => {
     .catch((e) => console.log(e));
 };
 
+const filterPostContentByString = (str, cf) => {
+  prisma.post
+    .findMany({
+      where: {
+        content: { contains: str },
+      },
+    })
+    .then((p) => cf(p))
+    .catch((e) => console.log(e));
+};
+
 module.exports = {
   createPost,
   readPostBySlug,
@@ -94,6 +105,7 @@ module.exports = {
   updatePost,
   deletePost,
   publishedPosts,
+  filterPostContentByString,
 };
 
 // Se non passo una delle proprietà, dà errore o semplicemente non la modifica?
