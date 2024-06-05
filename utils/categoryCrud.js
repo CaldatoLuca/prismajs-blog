@@ -10,8 +10,18 @@ const createCategory = (data, cf) => {
     .catch((e) => console.log(e));
 };
 
+const createCategories = (categoryNames, cf) => {
+  prisma.category
+    .createMany({
+      data: categoryNames.map((name) => ({ name: name })),
+    })
+    .then((categories) => cf(categories))
+    .catch((e) => console.log(e));
+};
+
 module.exports = {
   createCategory,
+  createCategories,
 };
 
 //versione estesa

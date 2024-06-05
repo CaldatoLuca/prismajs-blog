@@ -10,8 +10,18 @@ const createTag = (data, cf) => {
     .catch((e) => console.log(e));
 };
 
+const createTags = (tagNames, cf) => {
+  prisma.tag
+    .createMany({
+      data: tagNames.map((name) => ({ name: name })),
+    })
+    .then((tags) => cf(tags))
+    .catch((e) => console.log(e));
+};
+
 module.exports = {
   createTag,
+  createTags,
 };
 
 //versione estesa
