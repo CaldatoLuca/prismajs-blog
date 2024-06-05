@@ -33,7 +33,9 @@ const postCrud = require("./utils/postCrud");
 //   content: "postTestContentUpdate",
 //   published: true,
 //   categoryId: 2,
-//   tagsIds: [2, 3],
+//   tagsIds: [1],
 // };
 
 // postCrud.updatePost(2, updatedPost, (p) => console.log(p));
+
+// postCrud.deletePost(1, (p) => console.log(p));

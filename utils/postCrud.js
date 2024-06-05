@@ -61,11 +61,20 @@ const updatePost = (id, data, cf) => {
           connect: { id: data.categoryId },
         },
         tags: {
-          connect: data.tagsIds.map((tagId) => ({ id: tagId })),
+          set: data.tagsIds.map((tagId) => ({ id: tagId })),
         },
       },
     })
     .then((c) => cf(c))
+    .catch((e) => console.log(e));
+};
+
+const deletePost = (id, cf) => {
+  prisma.post
+    .delete({
+      where: { id: id },
+    })
+    .then((p) => cf(p))
     .catch((e) => console.log(e));
 };
 
@@ -74,6 +83,7 @@ module.exports = {
   readPostBySlug,
   readPosts,
   updatePost,
+  deletePost,
 };
 
 // Se non passo una delle proprietà, dà errore o semplicemente non la modifica?
@@ -84,3 +94,6 @@ module.exports = {
 
 // Se voglio che le relazioni vengano sovrascritte con quelle che passo devo usare set?
 // Esatto, se vuoi sovrascrivere le relazioni esistenti con quelle nuove, devi usare set.
+
+//se elimino un post con id cancella anche le sue relazioni?
+//si
