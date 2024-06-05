@@ -22,7 +22,7 @@ const createPost = (data, cf) => {
     .catch((e) => console.log(e));
 };
 
-const readPostById = (slug, cf) => {
+const readPostBySlug = (slug, cf) => {
   prisma.post
     .findUnique({
       where: { slug: slug },
@@ -35,7 +35,20 @@ const readPostById = (slug, cf) => {
     .catch((e) => console.log(e));
 };
 
+const readPosts = (cf) => {
+  prisma.post
+    .findMany({
+      include: {
+        category: { select: { name: true } },
+        tags: { select: { name: true } },
+      },
+    })
+    .then((p) => cf(p))
+    .catch((e) => console.log(e));
+};
+
 module.exports = {
   createPost,
-  readPostById,
+  readPostBySlug,
+  readPosts,
 };

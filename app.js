@@ -22,4 +22,6 @@ const postCrud = require("./utils/postCrud");
 // };
 // postCrud.createPost(postData, (p) => console.log(p));
 
-postCrud.readPostById("post-test", (p) => console.log(p));
+// postCrud.readPostBySlug("post-test", (p) => console.log(p));
+
+postCrud.readPosts((posts) => console.log(posts));
