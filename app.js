@@ -12,16 +12,28 @@ const postCrud = require("./utils/postCrud");
 // tagCrud.createTags(tags, (t) => console.log(t));
 
 // const postData = {
-//   title: "postTest",
-//   slug: "post-test",
-//   image: "postTestImage",
-//   content: "postTestContent",
+//   title: "postTest1",
+//   slug: "post-test1",
+//   image: "postTestImage1",
+//   content: "postTestContent1",
 //   published: true,
-//   categoryId: 1,
-//   tagsIds: [1, 2],
+//   categoryId: 3,
+//   tagsIds: [3, 4],
 // };
 // postCrud.createPost(postData, (p) => console.log(p));
 
 // postCrud.readPostBySlug("post-test", (p) => console.log(p));
 
-postCrud.readPosts((posts) => console.log(posts));
+// postCrud.readPosts((posts) => console.log(posts));
+
+// const updatedPost = {
+//   title: "postTestUpdate",
+//   slug: "post-test-update",
+//   image: "postTestImageUpdate",
+//   content: "postTestContentUpdate",
+//   published: true,
+//   categoryId: 2,
+//   tagsIds: [2, 3],
+// };
+
+// postCrud.updatePost(2, updatedPost, (p) => console.log(p));
